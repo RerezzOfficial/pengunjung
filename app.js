@@ -7,6 +7,10 @@ let visitorCount = 0;
 // Serve file statis dari folder 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Route untuk menambah jumlah pengunjung
 app.get('/api/visitor', (req, res) => {
   visitorCount += 1; // Tambah jumlah pengunjung
