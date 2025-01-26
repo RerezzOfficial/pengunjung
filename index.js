@@ -5,13 +5,10 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Koneksi ke MongoDB Atlas (Gantilah dengan username dan password Anda)
-mongoose.connect('mongodb+srv://rerezzofficial:oSFK39TmOfXxM8Ol@cluster0.mongodb.net/visitorDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("Connected to MongoDB"))
-.catch((error) => console.error("Error connecting to MongoDB:", error));
+// Koneksi ke MongoDB Atlas (pastikan URL benar)
+mongoose.connect('mongodb+srv://rerezzofficial:oSFK39TmOfXxM8Ol@cluster0.mongodb.net/visitorDB')
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("Error connecting to MongoDB:", error));
 
 // Schema dan model untuk visitor count
 const visitorSchema = new mongoose.Schema({
