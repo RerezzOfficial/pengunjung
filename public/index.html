@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jumlah Pengunjung</title>
   <script>
-    // Fetch jumlah pengunjung dari API
+    // Mengambil jumlah pengunjung dari API
     async function getVisitorCount() {
       const response = await fetch("/api/visitors");
       const data = await response.json();
       document.getElementById("visitor-count").textContent = data.visitors;
     }
 
-    // Panggil saat halaman dimuat
+    // Panggil fungsi saat halaman dimuat
     window.onload = getVisitorCount;
   </script>
 </head>
 <body>
-  <h1>Selamat datang di website sederhana</h1>
+  <h1>Selamat Datang di Website Sederhana</h1>
   <p>Jumlah pengunjung: <span id="visitor-count">0</span></p>
 </body>
 </html>
