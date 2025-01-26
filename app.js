@@ -7,6 +7,7 @@ let visitorCount = 0;
 // Serve file statis dari folder 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Route untuk menampilkan index.html saat root route diakses
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -17,5 +18,8 @@ app.get('/api/visitor', (req, res) => {
   res.json({ count: visitorCount }); // Kirim respons dalam format JSON
 });
 
-// Jalankan server
-module.exports = app; // Ekspor aplikasi untuk digunakan oleh Vercel
+// Jalankan server di port 3000 (hanya untuk lokal)
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server berjalan di http://localhost:${PORT}`);
+});
