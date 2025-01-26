@@ -18,7 +18,7 @@ app.get('/api/visitor', (req, res) => {
   res.json({ count: visitorCount }); // Kirim respons dalam format JSON
 });
 
-// Jalankan server di port 3000 (hanya untuk lokal)
+// Jalankan server di port 3000
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
