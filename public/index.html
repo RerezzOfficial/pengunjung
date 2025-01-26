@@ -1,46 +1,23 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jumlah Pengunjung</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-      margin: 0;
+  <script>
+    // Fetch jumlah pengunjung dari API
+    async function getVisitorCount() {
+      const response = await fetch("/api/visitors");
+      const data = await response.json();
+      document.getElementById("visitor-count").textContent = data.visitors;
     }
-    #visitor-count {
-      font-size: 2em;
-      color: #333;
-    }
-  </style>
+
+    // Panggil saat halaman dimuat
+    window.onload = getVisitorCount;
+  </script>
 </head>
 <body>
-  <div>
-    <h1>Jumlah Pengunjung:</h1>
-    <div id="visitor-count">Memuat...</div>
-  </div>
-
-  <script>
-    // Fungsi untuk mengambil jumlah pengunjung dari server
-    async function updateVisitorCount() {
-      try {
-        const response = await fetch('/api/visitor');
-        const data = await response.json();
-        document.getElementById('visitor-count').textContent = data.count;
-      } catch (error) {
-        console.error('Gagal memuat jumlah pengunjung:', error);
-        document.getElementById('visitor-count').textContent = 'Error';
-      }
-    }
-
-    // Panggil fungsi saat halaman dimuat
-    updateVisitorCount();
-  </script>
+  <h1>Selamat datang di website sederhana</h1>
+  <p>Jumlah pengunjung: <span id="visitor-count">0</span></p>
 </body>
 </html>
